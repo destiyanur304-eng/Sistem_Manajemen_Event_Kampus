@@ -10,10 +10,10 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  */
 public class Event {
     //Field
-    String namaEvent;
-    String kategori;
-    String tanggal;
-    String lokasi;
+    private String namaEvent;
+    private String kategori;
+    private String tanggal;
+    private String lokasi;
     
     //Method
     public void tampilkanInfoEvent(){
@@ -30,4 +30,32 @@ public class Event {
         this.tanggal = tanggal;
         this.lokasi = lokasi;
     } 
+    
+    //Getter
+    public String getNamaEvent(){
+        return namaEvent;
+    }
+    public String getKategori(){
+        return kategori;
+    }
+    public String getTanggal(){
+        return tanggal;
+    }
+    public String getLokasi(){
+        return lokasi;
+    }
+    
+    //Setter
+    public void setNamaEvent(String namaEvent){
+        this.namaEvent = namaEvent;
+    }
+    public void setKategori(String kategori){
+        this.kategori = kategori;
+    }
+    public void setTanggal(String tanggal){
+        this.tanggal = tanggal;
+    }
+    public void setLokasi(String lokasi){
+        this.lokasi = lokasi;
+    }
 }

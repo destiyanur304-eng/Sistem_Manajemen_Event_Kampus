@@ -10,8 +10,8 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  */
 public class Tiket {
     //Field
-    String jenisTiket;
-    int harga;
+    private String jenisTiket;
+    private int harga;
     
     //Method
     public void tampilkanInfoTiket(){
@@ -22,6 +22,22 @@ public class Tiket {
     //Constructor
     public Tiket(String jenisTiket, int harga){
         this.jenisTiket = jenisTiket;
+        this.harga = harga;
+    }
+    
+    //Getter
+    public String getJenisTiket(){
+        return jenisTiket;
+    }
+    public int getHarga(){
+        return harga;
+    }
+    
+    //Setter
+    public void setJenisTiket(String jenisTiket){
+        this.jenisTiket = jenisTiket;
+    }
+    public void setHarga(int harga){
         this.harga = harga;
     }
 }

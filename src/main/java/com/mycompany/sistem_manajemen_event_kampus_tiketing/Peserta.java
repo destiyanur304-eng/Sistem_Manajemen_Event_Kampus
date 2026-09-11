@@ -10,9 +10,9 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  */
 public class Peserta {
     //Field
-    String nama;
-    String npm;
-    String prodi;
+    private String nama;
+    private String npm;
+    private String prodi;
     
     //Method
     public void tampilkanInfoPeserta(){
@@ -25,6 +25,28 @@ public class Peserta {
     public Peserta(String nama, String npm, String prodi){
         this.nama = nama;
         this.npm = npm;
+        this.prodi = prodi;
+    }
+    
+    //Getter
+    public String getNama(){
+        return nama;
+    }
+    public String getNpm(){
+        return npm;
+    }
+    public String getProdi(){
+        return prodi;
+    }
+    
+    //Setter
+    public void setNama(String nama){
+        this.nama = nama;
+    }
+    public void setNpm(String npm){
+        this.npm = npm;
+    }
+    public void setProdi(String prodi){
         this.prodi = prodi;
     }
 }
