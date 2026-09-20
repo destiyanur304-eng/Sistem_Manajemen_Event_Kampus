@@ -38,6 +38,11 @@ public class Tiket {
         this.jenisTiket = jenisTiket;
     }
     public void setHarga(int harga){
-        this.harga = harga;
+        if(harga >= 0){
+            this.harga = harga;
+        }else{
+            System.out.println("Jenis Tiket : " + jenisTiket);
+            System.out.println("Harga : Rp" + harga);
+        }
     }
 }
