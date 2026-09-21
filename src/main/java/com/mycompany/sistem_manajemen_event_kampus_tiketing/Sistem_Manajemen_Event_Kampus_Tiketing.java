@@ -41,7 +41,8 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
             System.out.println("1. Lihat Informasi Event");
             System.out.println("2. Lihat Informasi Tiket");
             System.out.println("3. Lihat Informasi Peserta");
-            System.out.println("4. Keluaar");
+            System.out.println("4. Simulasi Setter dan Getter");
+            System.out.println("5. Keluar");
             System.out.println("Pilih menu: ");
             
             pilihan = input.nextInt();
@@ -56,11 +57,28 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
                 System.out.println("\n----Informasi Peserta----");
                 peserta1.tampilkanInfoPeserta();
             }else if(pilihan == 4){
+            System.out.println("\n--- Simulasi Setter dan Getter ----");
+            
+            System.out.println("\nData sebelum berubah:");
+            System.out.println("\nNama Event : " + event1.getNamaEvent());
+            System.out.println("\nJenis Tiket : " + tiket1.getJenisTiket());
+            System.out.println("\nHarga Tiket : Rp" + tiket1.getHarga());
+            
+            //Setter dengan data valid
+            System.out.println("\nMengubah Harga Tiket Menjadi Rp30000");
+            tiket1.setHarga(30000);
+            System.out.println("\nHarga Setelah Perubahan : Rp" + tiket1.getHarga());
+            
+            //Setter dengan harga tidak valid
+            System.out.println("\nMengubah Harga Tiket Menjadi Rp-5000");
+            tiket1.setHarga(-5000);
+            System.out.println("\nHarga Setelah Data Tidak Valid : Rp" + tiket1.getHarga());
+        }else if(pilihan == 5){
                 System.out.println("\nTerima kasih telah menggunakan sistem.");
             }else{
                 System.out.println("\nPilihan Tidak tersedia.");
             }
-        }while(pilihan !=4);
+        }while(pilihan !=5);
         input.close();
     }
 }
