@@ -33,47 +33,61 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
             25000
         );
         
+        SeminarEvent seminar1 = new SeminarEvent(
+            "Seminar Teknologi AI",
+            "Seminar",
+            "15 September 2026",
+            "Gedung Ilmu Komputer Lt.3",
+            "Dr. Budi Santoso"
+        );
+        
         //Menampilakn Informasi
         int pilihan;
         do{
+            System.out.println("\n--------------------------------------");
+            System.out.println("SISTEM MANAJEMEN EVENT KAMPUS");
             System.out.println("--------------------------------------");
-            System.out.println("\n----Menu Pilihan----");
+            System.out.println("---------- Menu Pilihan --------------");
             System.out.println("1. Lihat Informasi Event");
             System.out.println("2. Lihat Informasi Tiket");
             System.out.println("3. Lihat Informasi Peserta");
-            System.out.println("4. Simulasi Setter dan Getter");
-            System.out.println("5. Keluar");
+            System.out.println("4. Lihat Informasi Seminar");
+            System.out.println("5. Simulasi Setter dan Getter");
+            System.out.println("6. Keluar");
             System.out.println("Pilih menu: ");
             
             pilihan = input.nextInt();
     
             if(pilihan == 1){
-                System.out.println("\n----Informasi Event----");
+                System.out.println("\n------- Informasi Event -------");
                 event1.tampilkanInfoEvent();
             }else if(pilihan == 2){
-                System.out.println("\n----Informasi Tiket----");
+                System.out.println("\n------- Informasi Tiket -------");
                 tiket1.tampilkanInfoTiket();
             }else if(pilihan == 3){
-                System.out.println("\n----Informasi Peserta----");
+                System.out.println("\n--------Informasi Peserta-------");
                 peserta1.tampilkanInfoPeserta();
             }else if(pilihan == 4){
-            System.out.println("\n--- Simulasi Setter dan Getter ----");
+                System.out.println("\n--- Lihat Informasi Seminar ----");
+                seminar1.tampilkanInfoEvent();
+            }else if(pilihan == 5){
+                System.out.println("\n-- Simulasi Setter dan Getter ---");
             
-            System.out.println("\nData sebelum berubah:");
-            System.out.println("\nNama Event : " + event1.getNamaEvent());
-            System.out.println("\nJenis Tiket : " + tiket1.getJenisTiket());
-            System.out.println("\nHarga Tiket : Rp" + tiket1.getHarga());
+            System.out.println("Data sebelum berubah:");
+            System.out.println("Nama Event : " + event1.getNamaEvent());
+            System.out.println("Jenis Tiket : " + tiket1.getJenisTiket());
+            System.out.println("Harga Tiket : Rp" + tiket1.getHarga());
             
             //Setter dengan data valid
             System.out.println("\nMengubah Harga Tiket Menjadi Rp30000");
             tiket1.setHarga(30000);
-            System.out.println("\nHarga Setelah Perubahan : Rp" + tiket1.getHarga());
+            System.out.println("Harga Setelah Perubahan : Rp" + tiket1.getHarga());
             
             //Setter dengan harga tidak valid
             System.out.println("\nMengubah Harga Tiket Menjadi Rp-5000");
             tiket1.setHarga(-5000);
-            System.out.println("\nHarga Setelah Data Tidak Valid : Rp" + tiket1.getHarga());
-        }else if(pilihan == 5){
+            System.out.println("Harga Setelah Data Tidak Valid : Rp" + tiket1.getHarga());
+        }else if(pilihan == 6){
                 System.out.println("\nTerima kasih telah menggunakan sistem.");
             }else{
                 System.out.println("\nPilihan Tidak tersedia.");

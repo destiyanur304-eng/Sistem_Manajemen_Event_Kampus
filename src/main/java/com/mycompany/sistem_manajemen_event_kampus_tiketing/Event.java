@@ -10,10 +10,10 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  */
 public class Event {
     //Field
-    private String namaEvent;
-    private String kategori;
-    private String tanggal;
-    private String lokasi;
+    protected String namaEvent;
+    protected String kategori;
+    protected String tanggal;
+    protected String lokasi;
     
     //Method
     public void tampilkanInfoEvent(){
