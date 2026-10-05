@@ -8,7 +8,7 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  *
  * @author A c e r
  */
-public class Event {
+public abstract class Event {
     //Field
     protected String namaEvent;
     protected String kategori;
@@ -57,5 +57,13 @@ public class Event {
     }
     public void setLokasi(String lokasi){
         this.lokasi = lokasi;
+    }
+    
+    //Abstrak Method
+    public abstract void tampilkanDetail();
+    public abstract String getJenisEven();
+
+    String getJenisEvent() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
