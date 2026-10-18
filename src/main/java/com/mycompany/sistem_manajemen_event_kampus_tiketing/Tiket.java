@@ -13,12 +13,6 @@ public class Tiket {
     private String jenisTiket;
     private int harga;
     
-    //Method
-    public void tampilkanInfoTiket(){
-        System.out.println("Jenis Tiket : " + jenisTiket);
-        System.out.println("Harga : Rp" + harga);
-    }
-    
     //Constructor
     public Tiket(String jenisTiket, int harga){
         this.jenisTiket = jenisTiket;
@@ -37,12 +31,16 @@ public class Tiket {
     public void setJenisTiket(String jenisTiket){
         this.jenisTiket = jenisTiket;
     }
-    public void setHarga(int harga){
+    public void setHarga(int harga) throws HargaTiketTidakValidException{
         if(harga >= 0){
-            this.harga = harga;
-        }else{
-            System.out.println("Jenis Tiket : " + jenisTiket);
-            System.out.println("Harga : Rp" + harga);
+            throw new HargaTiketTidakValidException("Harga tiket tidak boleh negatif");
         }
+        this.harga = harga;
+    }
+    
+    //Method
+    public void tampilkanInfoTiket(){
+        System.out.println("Jenis Tiket : " + jenisTiket);
+        System.out.println("Harga : Rp" + harga);
     }
 }

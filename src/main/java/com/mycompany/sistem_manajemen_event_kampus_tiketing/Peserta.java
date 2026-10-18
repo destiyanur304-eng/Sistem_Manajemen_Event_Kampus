@@ -14,18 +14,16 @@ public class Peserta {
     private String npm;
     private String prodi;
     
-    //Method
-    public void tampilkanInfoPeserta(){
-        System.out.println("Nama : " + nama);
-        System.out.println("NPM : " + npm);
-        System.out.println("Prodi : " + prodi);
-    }
+    //Composition: peserta memiliki KartuPeserta
+    private KartuPeserta kartu;
     
     //Constructor
     public Peserta(String nama, String npm, String prodi){
         this.nama = nama;
         this.npm = npm;
         this.prodi = prodi;
+        
+        this.kartu = new KartuPeserta("KP-" + npm, nama);
     }
     
     //Getter
@@ -48,5 +46,16 @@ public class Peserta {
     }
     public void setProdi(String prodi){
         this.prodi = prodi;
+    }
+    
+    //Method
+    public void tampilkanInfoPeserta(){
+        System.out.println("Nama : " + nama);
+        System.out.println("NPM : " + npm);
+        System.out.println("Prodi : " + prodi);
+    }
+    
+    public void tampilkanKartuPeserta(){
+        kartu.tampilkanInfoKartu();
     }
 }
