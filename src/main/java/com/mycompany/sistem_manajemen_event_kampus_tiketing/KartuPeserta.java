@@ -8,7 +8,10 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  *
  * @author A c e r
  */
-public class KartuPeserta {
+import java.io.Serializable;
+        
+public class KartuPeserta implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nomorKartu;
     private String namaPemilik;
     

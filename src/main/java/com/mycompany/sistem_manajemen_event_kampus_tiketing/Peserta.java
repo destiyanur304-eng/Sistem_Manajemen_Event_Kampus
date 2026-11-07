@@ -8,7 +8,10 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  *
  * @author A c e r
  */
-public class Peserta {
+import java.io.Serializable;
+
+public class Peserta implements Serializable {
+    private static final long serialVersionUID = 1L;
     //Field
     private String nama;
     private String npm;
@@ -22,7 +25,6 @@ public class Peserta {
         this.nama = nama;
         this.npm = npm;
         this.prodi = prodi;
-        
         this.kartu = new KartuPeserta("KP-" + npm, nama);
     }
     

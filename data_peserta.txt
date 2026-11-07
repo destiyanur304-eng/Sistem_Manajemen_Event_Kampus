@@ -1,0 +1,12 @@
+Data Peserta Event Kampus
+Nama: Destiya Nurfadillah
+NPM: 2507071004
+Prodi: D3 Manajemen Informatika
+-----------------------------------------------
+Nama: Chika Febri Adinda
+NPM: 2507072017
+Prodi: Manajemen Informatika
+-----------------------------------------------
+Nama: Rania Khumaira
+NPM: 2507072021
+Prodi: Manajemen Informatika

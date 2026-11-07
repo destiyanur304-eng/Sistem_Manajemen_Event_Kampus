@@ -11,6 +11,15 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.IOException;
 
 public class Sistem_Manajemen_Event_Kampus_Tiketing {
     
@@ -95,7 +104,8 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
             System.out.println("8. Demonstrasi Exception Handling");
             System.out.println("9. Demonstrasi Relasi Antar-Objek");
             System.out.println("10. Demonstrasi Collection Framework");
-            System.out.println("11. Keluar");
+            System.out.println("11. Demonstrasi File I/O dan Serialization");
+            System.out.println("12. Keluar");
             System.out.println("Pilih menu: ");
             
             try{
@@ -192,11 +202,72 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
                 System.out.println("Jumlah peserta setelah dihapus: " + daftarPeserta.size());
                 System.out.println("Jumlah data nilai setelah dihapus: " + daftarPeserta.size());
             }else if (pilihan == 11) {
+                System.out.println("\n--- Demonstrasi File I/O dan Serialization ---");
+                //Menyimpan data ke file teks
+                System.out.println("[A] Menyimpan data peserta ke file teks");
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("data_peserta.txt"))){
+                    writer.write("Data Peserta Event Kampus");
+                    writer.newLine();
+                    writer.write("Nama: " + peserta1.getNama());
+                    writer.newLine();
+                    writer.write("NPM: " + peserta1.getNpm());
+                    writer.newLine();
+                    writer.write("Prodi: " + peserta1.getProdi());
+                    writer.newLine();
+                    writer.write("-----------------------------------------------");
+                    writer.newLine();
+                    writer.write("Nama: " + peserta2.getNama());
+                    writer.newLine();
+                    writer.write("NPM: " + peserta2.getNpm());
+                    writer.newLine();
+                    writer.write("Prodi: " + peserta2.getProdi());
+                    writer.newLine();
+                    writer.write("-----------------------------------------------");
+                    writer.newLine();
+                    writer.write("Nama: " + peserta3.getNama());
+                    writer.newLine();
+                    writer.write("NPM: " + peserta3.getNpm());
+                    writer.newLine();
+                    writer.write("Prodi: " + peserta3.getProdi());
+                    System.out.println("Data peserta berhasil disimpan.");
+                }catch (IOException e){
+                    System.out.println("Gagal menyimpan file: " + e.getMessage());
+                }
+                //Membaca data dari file teks
+                System.out.println("\n[B] Membaca data file teks");
+                try(BufferedReader reader = new BufferedReader(new FileReader("data_peserta.txt"))){
+                    String baris;
+                    while((baris = reader.readLine())!= null){
+                        System.out.println(baris);
+                    }
+                }catch(IOException e){
+                    System.out.println("Gagal membaca file: " + e.getMessage());
+                }
+                //Menyimpan Objek Menggunakan Serialization
+                System.out.println("\n[C] Object Serialization");
+                try(ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("Peserta.ser"))){
+                    output.writeObject(peserta1);
+                    System.out.println("Objek peserta berhasil disimpan.");
+                }catch (IOException e){
+                    System.out.println("Gagal melakukan serialization: " + e.getMessage());
+                }
+                //Mmebaca objek menggunakan Deserialization
+                System.out.println("\n[D] Object Deserialization");
+                try (ObjectInputStream objectInput = new ObjectInputStream(new FileInputStream("peserta.ser"))){
+                    Peserta dataPeserta = (Peserta) objectInput.readObject();
+                    System.out.println("Objek peserta berhasil dibaca kembali.");
+                    dataPeserta.tampilkanInfoPeserta();
+                    System.out.println("\nInformasi Kartu Peserta:");
+                    dataPeserta.tampilkanKartuPeserta();
+                }catch (IOException | ClassNotFoundException e){
+                    System.out.println("Gagal melakukan deserialization: " + e.getMessage());
+                }
+            }else if (pilihan == 12){
                 System.out.println("\nTerima kasih telah menggunakan sistem.");
-            }else {
+            }else{
                 System.out.println("\nPilihan tidak terseedia.");
-            } 
-        }while(pilihan != 11);
+            }
+        }while(pilihan != 12);
         input.close();
     }
 }
