@@ -9,6 +9,9 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  * @author A c e r
  */
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Sistem_Manajemen_Event_Kampus_Tiketing {
     
     public static void main(String[] args) {
@@ -36,6 +39,19 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
             "2507071004",
             "D3 Manajemen Informatika"
         );
+        
+        Peserta peserta2 = new Peserta(
+            "Chika Febri Adinda",
+            "2507072017",
+            "Manajemen Informatika"
+        );
+        
+        Peserta peserta3 = new Peserta(
+            "Rania Khumaira",
+            "2507072021",
+            "Manajemen Informatika"
+        );
+        
         //Object Tiket
         Tiket tiket1 = new Tiket(
             "Reguler",
@@ -47,9 +63,22 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
              "Panitia Kampus"
         );
         
-        //Menampilakn Informasi
+        //Menambahkan event ke dalam daftar panitia
         panitia1.tambahEvent(seminar1);
         panitia1.tambahEvent(workshop1);
+        
+        //ArrayList untuk menyimpan daftar peserta
+        ArrayList<Peserta> daftarPeserta = new ArrayList<>();
+        daftarPeserta.add(peserta1);
+        daftarPeserta.add(peserta2);
+        daftarPeserta.add(peserta3);
+        
+        //HashMap untuk menyimpan nilai peserta berdasarkan NPM
+        HashMap<String, Integer> nilaiPeserta = new HashMap<>();
+        nilaiPeserta.put(peserta1.getNpm(), 90);
+        nilaiPeserta.put(peserta2.getNpm(), 88);
+        nilaiPeserta.put(peserta3.getNpm(), 85);
+        
         int pilihan = 0;
         do{
             System.out.println("\n--------------------------------------");
@@ -65,7 +94,8 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
             System.out.println("7. Simulasi Setter dan Getter");
             System.out.println("8. Demonstrasi Exception Handling");
             System.out.println("9. Demonstrasi Relasi Antar-Objek");
-            System.out.println("10. Keluar");
+            System.out.println("10. Demonstrasi Collection Framework");
+            System.out.println("11. Keluar");
             System.out.println("Pilih menu: ");
             
             try{
@@ -136,14 +166,37 @@ public class Sistem_Manajemen_Event_Kampus_Tiketing {
                 System.out.println("[1] Composition - Kartu Peserta");
                 peserta1.tampilkanInfoPeserta();
                 peserta1.tampilkanKartuPeserta();
-                System.out.println("\n[2] Assiociation - Interaksi Panitia");
+                System.out.println("\n[2] Aggregation - Daftar Event");
+                panitia1.tampilkanDaftarEvent();
+                System.out.println("\n[3] Assiociation - Interaksi Panitia");
                 panitia1.melayaniPeserta(peserta1);
             }else if (pilihan == 10){
+                System.out.println("\n---- Demonstrasi Collection Framework ---");
+                // Menampilkan data ArrayList
+                System.out.println("[A] Daftar Peserta (ArrayList)");
+                for (Peserta peserta : daftarPeserta){
+                    peserta.tampilkanInfoPeserta();
+                    System.out.println("----------------------------------------");
+                }
+                System.out.println("Jumlah peserta: " + daftarPeserta.size());
+                //Menampilkan dan memperbarui nilai HashMap
+                System.out.println("\n[B] Nilai Peserta (HashMap)");
+                System.out.println("Nilai Destiya: " + nilaiPeserta.get(peserta1.getNpm()));
+                nilaiPeserta.put(peserta1.getNpm(), 95);
+                System.out.println("Nilai Destiya setelah diperbarui: " + nilaiPeserta.get(peserta1.getNpm()));
+                //Menghapus data dari ArrayList dan MashMap
+                System.out.println("\n[C] Mengahapus Data Peserta");
+                daftarPeserta.remove(peserta3);
+                nilaiPeserta.remove(peserta3.getNpm());
+                System.out.println("Peserta Rania berhasil dihapus.");
+                System.out.println("Jumlah peserta setelah dihapus: " + daftarPeserta.size());
+                System.out.println("Jumlah data nilai setelah dihapus: " + daftarPeserta.size());
+            }else if (pilihan == 11) {
                 System.out.println("\nTerima kasih telah menggunakan sistem.");
             }else {
-                System.out.println("\nPilihan tidak tersedia.");
-            }      
-        }while(pilihan != 10);
+                System.out.println("\nPilihan tidak terseedia.");
+            } 
+        }while(pilihan != 11);
         input.close();
     }
 }
