@@ -9,37 +9,43 @@ package com.mycompany.sistem_manajemen_event_kampus_tiketing;
  * @author A c e r
  */
 public class Tiket {
-    //Field
+
+    // Field
     private String jenisTiket;
     private int harga;
-    
-    //Constructor
-    public Tiket(String jenisTiket, int harga){
+
+    // Constructor
+    public Tiket(String jenisTiket, int harga) {
         this.jenisTiket = jenisTiket;
         this.harga = harga;
     }
-    
-    //Getter
-    public String getJenisTiket(){
+
+    // Getter
+    public String getJenisTiket() {
         return jenisTiket;
     }
-    public int getHarga(){
+
+    public int getHarga() {
         return harga;
     }
-    
-    //Setter
-    public void setJenisTiket(String jenisTiket){
+
+    // Setter
+    public void setJenisTiket(String jenisTiket) {
         this.jenisTiket = jenisTiket;
     }
-    public void setHarga(int harga) throws HargaTiketTidakValidException{
-        if(harga >= 0){
-            throw new HargaTiketTidakValidException("Harga tiket tidak boleh negatif");
+
+    public void setHarga(int harga) throws HargaTiketTidakValidException {
+        if (harga < 0) {
+            throw new HargaTiketTidakValidException(
+                    "Harga tiket tidak boleh negatif"
+            );
         }
+
         this.harga = harga;
     }
-    
-    //Method
-    public void tampilkanInfoTiket(){
+
+    // Method
+    public void tampilkanInfoTiket() {
         System.out.println("Jenis Tiket : " + jenisTiket);
         System.out.println("Harga : Rp" + harga);
     }

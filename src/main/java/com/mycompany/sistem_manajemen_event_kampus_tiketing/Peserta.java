@@ -61,3 +61,4 @@ public class Peserta implements Serializable {
         kartu.tampilkanInfoKartu();
     }
 }
+

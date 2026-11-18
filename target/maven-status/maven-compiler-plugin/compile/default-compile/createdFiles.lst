@@ -2,6 +2,7 @@ com\mycompany\sistem_manajemen_event_kampus_tiketing\Panitia.class
 com\mycompany\sistem_manajemen_event_kampus_tiketing\Tiket.class
 com\mycompany\sistem_manajemen_event_kampus_tiketing\Event.class
 com\mycompany\sistem_manajemen_event_kampus_tiketing\KartuPeserta.class
+com\mycompany\sistem_manajemen_event_kampus_tiketing\MainJavaFX.class
 com\mycompany\sistem_manajemen_event_kampus_tiketing\Peserta.class
 com\mycompany\sistem_manajemen_event_kampus_tiketing\WorkshopEvent.class
 com\mycompany\sistem_manajemen_event_kampus_tiketing\BisaDibatalkan.class
